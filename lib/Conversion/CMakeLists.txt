@@ -18,5 +18,9 @@ add_npcomp_library(NPCOMPConversionPasses
   LINK_LIBS PUBLIC
   NPCOMPBasicpyToSTD
   NPCOMPNumpyToTCF
+  NPCOMPTCFToLinalg
+  NPCOMPTCFToStd
   NPCOMPTCFToTCP
+  NPCOMPTorchToLinalg
+  NPCOMPTorchToStd
 )

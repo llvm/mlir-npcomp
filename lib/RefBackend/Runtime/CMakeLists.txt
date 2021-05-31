@@ -12,6 +12,11 @@ add_npcomp_library(NPCOMPRuntime
   Runtime.cpp
 )
 
+# If we aren't linking to MLIR dylib, link LLVMSupport.
+if(NOT NPCOMP_LINK_MLIR_DYLIB)
+  target_link_libraries(NPCOMPRuntime PRIVATE LLVMSupport)
+endif()
+
 mlir_check_all_link_libraries(NPCOMPRuntime)
 
 # The library that defines the symbols that the compiler emits references

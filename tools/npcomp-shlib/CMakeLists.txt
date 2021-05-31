@@ -32,6 +32,11 @@ foreach (lib ${npcomp_libs})
   list(APPEND _DEPS  $<TARGET_PROPERTY:${lib},LINK_LIBRARIES>)
 endforeach()
 
+# Link to MLIR dylib if requested.
+if(NPCOMP_LINK_MLIR_DYLIB)
+  list(PREPEND _DEPS MLIR)
+endif()
+
 # Note: Does not use add_npcomp_library, which is used for things that go
 # *into* the libNPCOMP.so. This is building the shared library, so use
 # a higher-level rule.
@@ -41,9 +46,8 @@ llvm_add_library(
   npcomp-shlib.cpp
   ${_OBJECTS}
   LINK_LIBS PUBLIC
-  # Public dependencies on the MLIR public API and impl shared libraries.
+  # Public dependencies on the MLIR public API.
   MLIRPublicAPI
-  MLIR
   ${_DEPS}
 )
 target_link_libraries(NPCOMP PRIVATE ${LLVM_PTHREAD_LIB})

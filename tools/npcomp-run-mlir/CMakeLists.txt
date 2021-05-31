@@ -12,11 +12,9 @@ llvm_update_compile_flags(npcomp-run-mlir)
 target_link_libraries(npcomp-run-mlir PRIVATE
   # Shared library deps first ensure we get most of what we need from libraries.
   NPCOMP
-  MLIR
 
   NPCOMPCAPI
   MLIRAnalysis
-  MLIREDSC
   MLIRIR
   MLIRJitRunner
   MLIRParser

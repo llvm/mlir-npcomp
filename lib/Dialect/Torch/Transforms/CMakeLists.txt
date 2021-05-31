@@ -19,10 +19,14 @@ add_npcomp_conversion_library(NPCOMPTorchPasses
   LINK_LIBS PUBLIC
   MLIRIR
   MLIRPass
+  MLIRTransformUtils
+  MLIRTransforms
+  NPCOMPCommonBackend
   NPCOMPTorchDialect
   NPCOMPBasicpyDialect
   NPCOMPNumpyPasses
   NPCOMPTorchToLinalg
+  NPCOMPTorchToStd
   NPCOMPTCFToStd
   NPCOMPInterfaces
 )
